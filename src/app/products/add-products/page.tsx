@@ -132,7 +132,7 @@ const Page = () => {
                 <Input
                   type="text"
                   id="product-name"
-                  className={`border p-2 w-1/2 text-sm ${errors.productName ? 'border-red-500' : ''}`}
+                  className={`border p-2 lg:w-1/2 md:w-1/2 text-sm ${errors.productName ? 'border-red-500' : ''}`}
                   placeholder="Enter Product Name"
                   value={productName}
                   onChange={(e) => {
@@ -149,10 +149,10 @@ const Page = () => {
                   setCategory(value);
                   setErrors((prev) => ({ ...prev, category: "" })); // Clear error on selection
                 }}>
-                  <SelectTrigger className="w-1/2 text-sm">
+                  <SelectTrigger className="lg:w-1/2 md:w-1/2  text-sm">
                     <SelectValue placeholder="Select Category" />
                   </SelectTrigger>
-                  <SelectContent className="w-1/2 text-sm">
+                  <SelectContent className="lg:w-1/2 md:w-1/2  text-sm">
                     <SelectItem value="shoes">Shoes</SelectItem>
                     {/* Add more categories as needed */}
                   </SelectContent>
@@ -165,7 +165,7 @@ const Page = () => {
                 <Input
                   type="text"
                   id="brand"
-                  className={`border p-2 w-1/2 text-sm ${errors.brand ? 'border-red-500' : ''}`}
+                  className={`border p-2 lg:w-1/2 md:w-1/2  text-sm ${errors.brand ? 'border-red-500' : ''}`}
                   placeholder="Enter Brand"
                   value={brand}
                   onChange={(e) => {
@@ -188,7 +188,7 @@ const Page = () => {
                 <button
                   type="button"
                   onClick={handleFileInputClick}
-                  className="border p-2 w-1/5 text-sm flex items-center justify-center gap-2 bg-white border-[#497aff] text-[#497aff] font-semibold rounded-lg"
+                  className="border p-2 lg:w-1/2 md:w-1/2  text-sm flex items-center justify-center gap-2 bg-white border-[#497aff] text-[#497aff] font-semibold rounded-lg"
                 >
                   <ImageUp /> <span>{fileName}</span> {/* Display the file name or default text */}
                 </button>
@@ -247,128 +247,79 @@ const Page = () => {
         )
       case 2:
         return (
-          <div className="flex flex-col gap-4 w-1/2">
-      <h1 className="font-semibold">Variants</h1>
-      <div className="grid grid-cols-4 gap-4">
-        {/* Column Headers */}
-        <div className="flex flex-col">
-          <Label className="mb-1 text-sm"></Label>
-        </div>
-        <div className="flex flex-col">
-          <Label htmlFor="sku" className="mb-1 text-sm">SKU *</Label>
-        </div>
-        <div className="flex flex-col">
-          <Label className="mb-1 text-sm">In stock</Label>
-        </div>
-        <div className="flex flex-col">
-          <Label htmlFor="quantity" className="mb-1 text-sm">Quantity</Label>
-        </div>
-      </div>
-
-      {/* Variant Row 1 */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="flex flex-col">
-          <p className='text-sm'>M/Black</p>
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="sku-1"
-            className="border p-2 w-[100px] text-sm"
-            placeholder=""
-          />
-        </div>
-        <div className="flex flex-col">
-          <SlideToggle />
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="quantity-1"
-            className="border p-2 w-[200px] text-sm"
-            placeholder=""
-          />
-        </div>
-      </div>
-
-      {/* Variant Row 2 */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="flex flex-col">
-          <p className='text-sm'>M/Red</p>
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="sku-2"
-            className="border p-2 w-[100px] text-sm"
-            placeholder=""
-          />
-        </div>
-        <div className="flex flex-col">
-          <SlideToggle  />
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="quantity-2"
-            className="border p-2 w-[200px] text-sm"
-            placeholder=""
-          />
-        </div>
-      </div>
-
-      {/* Variant Row 2 */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="flex flex-col">
-          <p className='text-sm'>L/Black</p>
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="sku-2"
-            className="border p-2 w-[100px] text-sm"
-            placeholder=""
-          />
-        </div>
-        <div className="flex flex-col">
-          <SlideToggle  />
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="quantity-2"
-            className="border p-2 w-[200px] text-sm"
-            placeholder=""
-          />
-        </div>
-      </div>
-
-      {/* Variant Row 2 */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="flex flex-col">
-          <p className='text-sm'>L/Red</p>
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="sku-2"
-            className="border p-2 w-[100px] text-sm"
-            placeholder=""
-          />
-        </div>
-        <div className="flex flex-col">
-          <SlideToggle  />
-        </div>
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            id="quantity-2"
-            className="border p-2 w-[200px] text-sm"
-            placeholder=""
-          />
-        </div>
-      </div>
+          <div className="flex flex-col gap-4 w-full lg:w-1/2">
+  <h1 className="font-semibold">Variants</h1>
+  
+  {/* Column Headers */}
+  <div className="hidden sm:grid grid-cols-4 gap-4">
+    <div className="flex flex-col">
+      <Label className="mb-1 text-sm"></Label>
     </div>
+    <div className="flex flex-col">
+      <Label htmlFor="sku" className="mb-1 text-sm">SKU *</Label>
+    </div>
+    <div className="flex flex-col">
+      <Label className="mb-1 text-sm">In stock</Label>
+    </div>
+    <div className="flex flex-col">
+      <Label htmlFor="quantity" className="mb-1 text-sm">Quantity</Label>
+    </div>
+  </div>
+
+  {/* Variant Row 1 */}
+  <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+    <div className="flex flex-col">
+      <p className="text-sm">M/Black</p>
+    </div>
+    <div className="flex flex-col">
+      <Input
+        type="text"
+        id="sku-1"
+        className="border p-2 text-sm w-full"
+        placeholder=""
+      />
+    </div>
+    <div className="flex flex-col">
+      <SlideToggle />
+    </div>
+    <div className="flex flex-col">
+      <Input
+        type="text"
+        id="quantity-1"
+        className="border p-2 text-sm w-full"
+        placeholder=""
+      />
+    </div>
+  </div>
+
+  {/* Variant Row 2 */}
+  <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+    <div className="flex flex-col">
+      <p className="text-sm">M/Red</p>
+    </div>
+    <div className="flex flex-col">
+      <Input
+        type="text"
+        id="sku-2"
+        className="border p-2 text-sm w-full"
+        placeholder=""
+      />
+    </div>
+    <div className="flex flex-col">
+      <SlideToggle />
+    </div>
+    <div className="flex flex-col">
+      <Input
+        type="text"
+        id="quantity-2"
+        className="border p-2 text-sm w-full"
+        placeholder=""
+      />
+    </div>
+  </div>
+</div>
+
+
         )
       case 3:
         return (
@@ -416,14 +367,14 @@ const Page = () => {
     <div className="w-full h-screen">
       {/* Header */}
       <div id="header" className="w-full h-8 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Add Products</h1>
+        <h1 className="lg:text-xl md:text-xl text-md font-bold">Add Products</h1>
         <div className="flex gap-3">
           {/* "Cancel" becomes "Back" on intermediate stages */}
           {currentStage === 0 ? (
             <Link href={"/products"}>
               <Button
                 variant="outline"
-                className="px-10 font-[600] text-[#1F8CD0] bg-[#E1E7EB] hover:text-[#1F8CD0] hover:bg-[#E1E7EB]"
+                className="lg:px-10 md:px-10 font-[600] text-[#1F8CD0] bg-[#E1E7EB] hover:text-[#1F8CD0] hover:bg-[#E1E7EB]"
               >
                 Cancel
               </Button>
@@ -432,7 +383,7 @@ const Page = () => {
             <Button
               variant="outline"
               onClick={prevStage}
-              className="px-10 font-[600] text-[#1F8CD0] bg-[#E1E7EB] hover:text-[#1F8CD0] hover:bg-[#E1E7EB]"
+              className="lg:px-10 md:px-10 font-[600] text-[#1F8CD0] bg-[#E1E7EB] hover:text-[#1F8CD0] hover:bg-[#E1E7EB]"
             >
               Back
             </Button>
@@ -440,7 +391,7 @@ const Page = () => {
           
           <Button
             onClick={nextStage}
-            className="px-10 bg-[#1F8CD0] text-white hover:bg-[#1F8CD0] hover:text-white font-[600]"
+            className="lg:px-10 md:px-10 bg-[#1F8CD0] text-white hover:bg-[#1F8CD0] hover:text-white font-[600]"
           >
             {currentStage === stages.length - 1 ? "Confirm" : "Next"}
           </Button>
@@ -454,13 +405,13 @@ const Page = () => {
             {stages.map((stage, index) => (
               <BreadcrumbItem key={stage}>
                 {index <= currentStage ? (
-                  <BreadcrumbPage className="bg-[#DAEDF9] p-1 px-2 rounded text-[#1F8CD0] font-[500] cursor-pointer">
+                  <BreadcrumbPage className="lg:bg-[#DAEDF9] md:bg-[#DAEDF9] lg:p-1 lg:px-2 md:p-1 md:px-2 rounded text-[#1F8CD0] font-[500] cursor-pointer lg:text-md md:text-md text-xs">
                     {stage}
                   </BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink
                     onClick={() => setCurrentStage(index)}
-                    className="cursor-pointer p-1 px-2"
+                    className="cursor-pointer lg:p-1 lg:px-2 md:p-1 md:px-2 lg:text-md md:text-md text-xs"
                   >
                     {stage}
                   </BreadcrumbLink>

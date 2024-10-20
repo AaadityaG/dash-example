@@ -37,7 +37,7 @@ const Stage2: React.FC = () => {
       <h1 className="font-semibold">Variants</h1>
 
       {options.map((option, index) => (
-        <div key={index} className="flex gap-4 items-end">
+        <div key={index} className="flex lg:gap-4 md:gap-4 gap-1 items-end">
           <div className="flex flex-col">
             <Label htmlFor={`option-${index}`} className="mb-1 text-sm">Options *</Label>
             <Input
@@ -55,7 +55,7 @@ const Stage2: React.FC = () => {
             <Input
               type="text"
               id={`value-${index}`}
-              className="border p-2 w-[200px] text-sm"
+              className="border p-2 lg:w-[200px] md:w-[200px] w-[100px] text-sm"
               placeholder=""
               value={option.value}
               onChange={(e) => handleChange(index, 'value', e.target.value)}

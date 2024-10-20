@@ -1,14 +1,16 @@
 'use client'; // Necessary for hooks like usePathname in components
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from "@/assets/logo.png";
 import Image from 'next/image';
-import { ChevronRight  } from 'lucide-react';
-import User from "@/assets/user.png"
+import { ChevronRight, ChevronLeft } from 'lucide-react'; // Import Menu icon
+import User from "@/assets/user.png";
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to handle sidebar visibility
 
   // Define sections as an array of objects to handle both title and path
   const sections = [
@@ -21,46 +23,85 @@ const Sidebar = () => {
     { name: 'Docs', path: '/docs' },
   ];
 
-  // const sections = ['Home', 'Stores', 'Products', 'Catalog', 'Promotions', 'Reports', 'Docs', 'Settings'];
-  
-
   // Function to check if the current route matches the section path
   const isActive = (path: string) => pathname === path;
 
+  // Toggle sidebar function
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-  
+    <>
+      {/* Desktop Sidebar */}
+      <div className="w-1/4 h-screen bg-white flex-col border-[#dadada] border-r-[1px] hidden lg:flex md:flex">
+        {/* Logo at the top */}
+        <div className='border-[#dadada] border-b-[1px] my-4 mx-8 pb-5'>
+          <Image src={Logo} alt="Logo" className='rounded-lg w-36' />
+        </div>
 
-    <div className="w-1/4 h-screen bg-white flex flex-col border-[#dadada] border-r-[1px]">
-      {/* Logo at the top */}
-      <div className='border-[#dadada] border-b-[1px] my-4 mx-8 pb-5'>
-        <Image src={Logo} alt="Logo" className='rounded-lg w-36' />
-      </div>
+        {/* Button container */}
+        <div className="flex-grow flex flex-col">
+          {sections.map((section) => (
+            <Link
+              key={section.name}
+              href={section.path}
+              className={`py-3 px-8 hover:bg-[#ECF7FF] text-start text-sm ${isActive(section.path) ? 'text-blue-500 bg-[#ECF7FF]' : 'text-black'}`}
+            >
+              {section.name}
+            </Link>
+          ))}
+        </div>
 
-      {/* Button container */}
-      <div className="flex-grow flex flex-col">
-        {sections.map((section) => (
-          <Link
-            key={section.name}
-            // onClick={() => setActiveSectihref={section.path}on(section)}
-            href={section.path}
-            className={`py-3 px-8 hover:bg-[#ECF7FF] text-start text-sm ${isActive(section.path) ? 'text-blue-500 bg-[#ECF7FF]' : 'text-black'}`}
-          >
-            {section.name}
-          </Link>
-        ))}
-      </div>
-
-      {/* Logo at the bottom */}
-      <div className='border-[#dadada] border-t-[1px] my-4 mx-8 pt-5 flex items-center gap-3'>
-        <Image src={User} alt="Logo" className='rounded-full w-10 h-10' />
-        {/* <User className='rounded-full w-10 h-10 border-2 border-black' /> */}
-        <div className='flex flex-col '>
+        {/* User info at the bottom */}
+        <div className='border-[#dadada] border-t-[1px] my-4 mx-8 pt-5 flex items-center gap-3'>
+          <Image src={User} alt="User" className='rounded-full w-10 h-10' />
+          <div className='flex flex-col'>
             <p className='text-xs'>Andy Samberg</p>
             <p className='text-xs text-[#575757]'>andysamberg@gmail.com</p>
+          </div>
+          <ChevronRight color='#1F8CD0' />
         </div>
-        <ChevronRight color='#1F8CD0' />
       </div>
-    </div>
+
+      {/* Hamburger button for mobile */}
+      <div className="lg:hidden md:hidden absolute top-[71px] left-[0px] z-40">
+        <button onClick={toggleSidebar} className="bg-[#53acff] p-[0.5px] rounded-full text-white text-xs">
+          <ChevronRight  className={`${isSidebarOpen ? 'rotate-180 transform delay-75 text-xs' : " text-xs rotate-0 transform delay-75"}`} />
+        </button>
+      </div>
+
+      {/* Mobile Sidebar */}
+      <div className={`h-screen min-h-full bg-white flex-col border-[#dadada] border-r-[1px] flex absolute w-1/2 z-30 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden md:hidden`}>
+        {/* Logo at the top */}
+        <div className='border-[#dadada] border-b-[1px] my-4 mx-8 pb-5'>
+          <Image src={Logo} alt="Logo" className='rounded-lg w-36' />
+        </div>
+
+        {/* Button container */}
+        <div className="flex-grow flex flex-col">
+          {sections.map((section) => (
+            <Link
+              key={section.name}
+              href={section.path}
+              className={`py-3 px-8 hover:bg-[#ECF7FF] text-start text-sm ${isActive(section.path) ? 'text-blue-500 bg-[#ECF7FF]' : 'text-black'}`}
+            >
+              {section.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* User info at the bottom */}
+        <div className='border-[#dadada] border-t-[1px] my-4  pt-5 flex items-center gap-3'>
+          <Image src={User} alt="User" className='rounded-full w-8 h-8' />
+          <div className='flex flex-col'>
+            <p className='text-xs'>Andy Samberg</p>
+            <p className='text-xs text-[#575757]'>andysamberg@gmail.com</p>
+          </div>
+          <ChevronRight color='#1F8CD0' />
+        </div>
+      </div>
+    </>
   );
 };
 

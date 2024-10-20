@@ -49,7 +49,7 @@ const Products = () => {
     return (
         <div className='w-full h-screen'>
             <div id="header" className='w-full h-8 flex justify-between items-center'>
-                <h1 className='text-xl font-bold'>Products</h1>
+                <h1 className='lg:text-xl md:text-xl font-bold text-md'>Products</h1>
                 <div className='flex gap-3'>
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger asChild>
