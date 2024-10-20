@@ -188,7 +188,7 @@ const Page = () => {
                 <button
                   type="button"
                   onClick={handleFileInputClick}
-                  className="border p-2 lg:w-1/2 md:w-1/2  text-sm flex items-center justify-center gap-2 bg-white border-[#497aff] text-[#497aff] font-semibold rounded-lg"
+                  className="border p-2 lg:w-1/5 md:w-1/5  text-sm flex items-center justify-center gap-2 bg-white border-[#497aff] text-[#497aff] font-semibold rounded-lg"
                 >
                   <ImageUp /> <span>{fileName}</span> {/* Display the file name or default text */}
                 </button>
