@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   // Define sections as an array of objects to handle both title and path
   const sections = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/home' },
     { name: 'Store', path: '/store' },
     { name: 'Products', path: '/products' },
     { name: 'Catalog', path: '/catalog' },

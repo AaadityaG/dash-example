@@ -3,6 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import './globals.css';
 import { Work_Sans } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
+import { redirect } from "next/navigation";
 
 const work = Work_Sans({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body className={`flex ${work.className}`}>
