@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Logo from "@/assets/images/logo.png";
 import Image from 'next/image';
 import { ChevronRight, ChevronLeft } from 'lucide-react'; // Import Menu icon
-import User from "@/assets/images/user.png";
+// import User from "@/assets/images/user.png";
+import User from "../../public/images/user.png"
+import Logo from "../../public/images/logo.png"
 
 const Sidebar = () => {
   const pathname = usePathname();

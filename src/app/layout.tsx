@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 const work = Work_Sans({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Dashboard Layout',
+  title: 'by aaadityag(github)',
 };
 
 export default function RootLayout({
