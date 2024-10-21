@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { ChevronRight, ChevronLeft } from 'lucide-react'; // Import Menu icon
 // import User from "@/assets/images/user.png";
-import User from "../../public/images/user.png"
-import Logo from "../../public/images/logo.png"
+import User from "./images/user.png"
+import Logo from "./images/logo.png"
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -38,7 +38,7 @@ const Sidebar = () => {
       <div className="w-1/4 h-screen bg-white flex-col border-[#dadada] border-r-[1px] hidden lg:flex md:flex">
         {/* Logo at the top */}
         <div className='border-[#dadada] border-b-[1px] my-4 mx-8 pb-5'>
-          <Image src={Logo} alt="Logo" className='rounded-lg w-36' />
+          <Image src={'/images/logo.png'} alt="Logo" className='rounded-lg w-36' width={144} height={144} />
         </div>
 
         {/* Button container */}
@@ -56,7 +56,7 @@ const Sidebar = () => {
 
         {/* User info at the bottom */}
         <div className='border-[#dadada] border-t-[1px] my-4 mx-8 pt-5 flex items-center gap-3'>
-          <Image src={User} alt="User" className='rounded-full w-10 h-10' />
+          <Image src={'/images/user.png'} alt="User" className='rounded-full ' width={32} height={32} />
           <div className='flex flex-col'>
             <p className='text-xs'>Andy Samberg</p>
             <p className='text-xs text-[#575757]'>andysamberg@gmail.com</p>
@@ -76,7 +76,7 @@ const Sidebar = () => {
       <div className={`h-screen min-h-full bg-white flex-col border-[#dadada] border-r-[1px] flex absolute w-1/2 z-30 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden md:hidden`}>
         {/* Logo at the top */}
         <div className='border-[#dadada] border-b-[1px] my-4 mx-8 pb-5'>
-          <Image src={Logo} alt="Logo" className='rounded-lg w-36' />
+          <Image src={'/images/logo.png'} alt="Logo" className='rounded-lg ' width={144} height={144} />
         </div>
 
         {/* Button container */}
@@ -94,7 +94,7 @@ const Sidebar = () => {
 
         {/* User info at the bottom */}
         <div className='border-[#dadada] border-t-[1px] my-4  pt-5 flex items-center gap-3'>
-          <Image src={User} alt="User" className='rounded-full w-8 h-8' />
+          <Image src={'/images/user.png'} alt="User" className='rounded-full ' width={32} height={32}/>
           <div className='flex flex-col'>
             <p className='text-xs'>Andy Samberg</p>
             <p className='text-xs text-[#575757]'>andysamberg@gmail.com</p>
