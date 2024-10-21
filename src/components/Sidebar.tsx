@@ -6,8 +6,6 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { ChevronRight, ChevronLeft } from 'lucide-react'; // Import Menu icon
 // import User from "@/assets/images/user.png";
-import User from "./images/user.png"
-import Logo from "./images/logo.png"
 
 const Sidebar = () => {
   const pathname = usePathname();
