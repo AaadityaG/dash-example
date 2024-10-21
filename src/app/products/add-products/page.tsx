@@ -21,9 +21,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import Stage2 from "@/components/stages/stage2";
-import Stage3 from "@/components/stages/stage3";
-import Stage4 from "@/components/stages/stage4";
 import SlideToggle from '@/components/Toggle';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
